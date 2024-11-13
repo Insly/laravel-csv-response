@@ -3,10 +3,13 @@
 use Neoxia\Routing\ResponseFactory;
 use Illuminate\Support\Collection;
 use Mockery as m;
+use PHPUnit\Framework\TestCase;
 
-class ResponseFactoryTest extends PHPUnit_Framework_TestCase
+class ResponseFactoryTest extends TestCase
 {
-    public function setUp()
+    protected ResponseFactory $responseFactory;
+
+    public function setUp(): void
     {
         parent::setUp();
 
@@ -193,6 +196,8 @@ class ResponseFactoryTest extends PHPUnit_Framework_TestCase
 
 class ModelStub
 {
+    protected array $attributes = [];
+
     public function __construct($attributes = [])
     {
         $this->attributes = $attributes;
